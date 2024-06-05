@@ -1,3 +1,4 @@
+---
 git config --global user.name "ENTER HERE"
 git config --global user.email "ENTER HERE"
 git clone git@github.com:$ENTER_GIT_USERNAME/Repo1.git
