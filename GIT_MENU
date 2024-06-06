@@ -16,6 +16,10 @@ GIT_STATUS() {
 git status 
 }
 
+GIT_PUSH() {
+git push 
+}
+
 GIT_COMMIT() {
 git commit -m "Updated file $fn"
 }
@@ -32,6 +36,7 @@ select choice in \
 "GIT_STATUS" \
 "GIT_COMMIT" \
 "GIT_CLONE" \
+"GIT_PUSH" \
 "EXIT_GIT_MENU" 
 
 do
