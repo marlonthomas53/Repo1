@@ -13,11 +13,16 @@ clear
 
 GIT_PULL() {
 clear 
+		echo -e "\tPerforming a 'GIT PULL' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
+		sleep 1
 		git pull 
 }
 
 GIT_STATUS() {
 clear
+		echo -e "\tPerforming a 'GIT STATUS' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
 		git status 
 }
 
@@ -28,11 +33,16 @@ clear
 
 GIT_COMMIT() {
 clear
+		echo -e "\tPerforming a 'GIT COMMIT' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
 		git commit -m "Updated file $fn"
 }
 
 GIT_CLONE() {
 clear
+		echo -e "\tPerforming a 'GIT CLONE' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
+
 		echo "cd $HOME; mv $HOME/$REPOSITORY $HOME/$REPOSITORY.`date +%Y%m%d`.bk"
 		echo "git clone git@github.com marlonthomas53/$REPOSITORY"
 		echo "cd $HOME/$REPOSITORY"
@@ -41,13 +51,16 @@ clear
 
 GIT_DIFF() {
 clear
+		echo -e "\tPerforming a 'GIT DIFF' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
+
 		git diff 
 }
 
 PS3="INPUT: HIT ENTER -> "
 select choice in \
-"GIT_PULL" \
 "GIT_STATUS" \
+"GIT_PULL" \
 "GIT_ADD" \
 "GIT_COMMIT" \
 "GIT_PUSH" \
@@ -59,32 +72,32 @@ do
 for options in $(echo $choice)
 do
 case $options in
-                "GIT_PULL")
-                        GIT_PULL
+    "GIT_STATUS")
+        GIT_STATUS
 ;;
-                "GIT_STATUS")
-                        GIT_STATUS
+    "GIT_PULL")
+        GIT_PULL
 ;;
-                "GIT_ADD")
-                        GIT_ADD
+    "GIT_ADD")
+        GIT_ADD
 ;;
-                "GIT_COMMIT")
-                        GIT_COMMIT
+    "GIT_COMMIT")
+        GIT_COMMIT
 ;;
-                "GIT_PUSH")
-                        GIT_PUSH
+    "GIT_PUSH")
+        GIT_PUSH
 ;;
-                "GIT_DIFF")
-                        GIT_DIFF
+    "GIT_DIFF")
+        GIT_DIFF
 ;;
-                "GIT_CLONE")
-                        GIT_CLONE
+    "GIT_CLONE")
+        GIT_CLONE
 ;;
-                "EXIT_GIT_MENU")
-                        clear
-                        echo -e "\n\t\tEXITING_GIT_MENU"
-												sleep 1
-                        exit 0
+    "EXIT_GIT_MENU")
+        clear
+        echo -e "\n\t\tEXITING_GIT_MENU"
+				sleep 1
+        exit 0
 ;;
 esac
 done
