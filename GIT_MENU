@@ -1,0 +1,63 @@
+#!/usr/bin/sh
+
+# fn=$1
+fn=`ls -t | head -1`
+REPOSITORY=repo2
+
+GIT_ADD() {
+git add $fn
+}
+
+GIT_PULL() {
+git pull 
+}
+
+GIT_STATUS() {
+git status 
+}
+
+GIT_COMMIT() {
+git commit -m "Updated file $fn"
+}
+
+GIT_CLONE() {
+git clone git@github.com marlonthomas53/$REPOSITORY
+}
+
+
+PS3="INPUT: HIT ENTER -> "
+select choice in \
+"GIT_ADD" \
+"GIT_PULL" \
+"GIT_STATUS" \
+"GIT_COMMIT" \
+"GIT_CLONE" \
+"EXIT_GIT_MENU" 
+
+do
+for options in $(echo $choice)
+do
+case $options in
+                "GIT_ADD")
+                        GIT_ADD
+;;
+                "GIT_PULL")
+                        GIT_PULL
+;;
+                "GIT_STATUS")
+                        GIT_STATUS
+;;
+                "GIT_COMMIT")
+                        GIT_COMMIT
+;;
+                "GIT_CLONE")
+                        GIT_CLONE
+;;
+                "EXIT_GIT_MENU")
+                        clear
+                        echo -e "\n\t\tEXITING"
+                        exit 0
+;;
+esac
+done
+        done
