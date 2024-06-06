@@ -82,7 +82,8 @@ case $options in
 ;;
                 "EXIT_GIT_MENU")
                         clear
-                        echo -e "\n\t\tEXITING"
+                        echo -e "\n\t\tEXITING_GIT_MENU"
+												sleep 1
                         exit 0
 ;;
 esac
