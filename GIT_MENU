@@ -1,59 +1,81 @@
 #!/usr/bin/sh
+clear
 
-# fn=$1
 fn=`ls -t | head -1`
 REPOSITORY=repo2
 
 GIT_ADD() {
-git add $fn
+clear
+		git add $fn
+
+# fns=$(ls -lt | awk '{print $NF}' | tr -d '[0-9]')
 }
 
 GIT_PULL() {
-git pull 
+clear 
+		git pull 
 }
 
 GIT_STATUS() {
-git status 
+clear
+		git status 
 }
 
 GIT_PUSH() {
-git push 
+clear 
+		git push 
 }
 
 GIT_COMMIT() {
-git commit -m "Updated file $fn"
+clear
+		git commit -m "Updated file $fn"
 }
 
 GIT_CLONE() {
-git clone git@github.com marlonthomas53/$REPOSITORY
+clear
+		echo "cd $HOME; mv $HOME/$REPOSITORY $HOME/$REPOSITORY.`date +%Y%m%d`.bk"
+		echo "git clone git@github.com marlonthomas53/$REPOSITORY"
+		echo "cd $HOME/$REPOSITORY"
+		pwd
 }
 
+GIT_DIFF() {
+clear
+		git diff 
+}
 
 PS3="INPUT: HIT ENTER -> "
 select choice in \
-"GIT_ADD" \
 "GIT_PULL" \
 "GIT_STATUS" \
+"GIT_ADD" \
 "GIT_COMMIT" \
-"GIT_CLONE" \
 "GIT_PUSH" \
+"GIT_DIFF" \
+"GIT_CLONE" \
 "EXIT_GIT_MENU" 
 
 do
 for options in $(echo $choice)
 do
 case $options in
-                "GIT_ADD")
-                        GIT_ADD
-;;
                 "GIT_PULL")
                         GIT_PULL
 ;;
                 "GIT_STATUS")
                         GIT_STATUS
 ;;
+                "GIT_ADD")
+                        GIT_ADD
+;;
                 "GIT_COMMIT")
                         GIT_COMMIT
+;;
+                "GIT_PUSH")
+                        GIT_PUSH
+;;
+                "GIT_DIFF")
+                        GIT_DIFF
 ;;
                 "GIT_CLONE")
                         GIT_CLONE
