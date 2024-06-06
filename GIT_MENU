@@ -8,7 +8,8 @@ GIT_ADD() {
 clear
 		echo -e "\tPerforming a 'GIT ADD' on repository $respository\nHIT ENTER TO CONTINUE"
 		read
-		git add $fn
+		sleep 1
+				git add $fn
 
 # fns=$(ls -lt | awk '{print $NF}' | tr -d '[0-9]')
 }
@@ -17,7 +18,8 @@ GIT_ADD_ALL() {
 clear
 		echo -e "\tPerforming a 'GIT ADD' on repository $respository\nHIT ENTER TO CONTINUE"
 		read
-		git add .
+		sleep 1
+				git add .
 
 # fns=$(ls -lt | awk '{print $NF}' | tr -d '[0-9]')
 }
@@ -29,14 +31,12 @@ clear
 
 GIT_STATUS() {
 clear
-		# echo -e "\tPerforming a 'GIT STATUS' on repository $respository\nHIT ENTER TO CONTINUE"
-		# read
-		git status 
+			git status 
 }
 
 GIT_PUSH() {
 clear 
-		git push 
+			git push 
 }
 
 GIT_COMMIT() {
