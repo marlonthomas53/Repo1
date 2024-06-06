@@ -15,9 +15,6 @@ clear
 
 GIT_PULL() {
 clear 
-		echo -e "\tPerforming a 'GIT PULL' on repository $respository\nHIT ENTER TO CONTINUE"
-		read
-		sleep 1
 		git pull 
 }
 
@@ -30,15 +27,11 @@ clear
 
 GIT_PUSH() {
 clear 
-		echo -e "\tPerforming a 'GIT PUSH' on repository $respository\nHIT ENTER TO CONTINUE"
-		read
 		git push 
 }
 
 GIT_COMMIT() {
 clear
-		# echo -e "\tPerforming a 'GIT COMMIT' on repository $respository\nHIT ENTER TO CONTINUE"
-		# read
 		git commit -m "Updated file $fn"
 }
 
@@ -55,11 +48,10 @@ clear
 
 GIT_DIFF() {
 clear
-		# echo -e "\tPerforming a 'GIT DIFF' on repository $respository\nHIT ENTER TO CONTINUE"
-		# read
-
 		git diff 
 }
+
+###### MAIN 
 
 PS3="INPUT: HIT ENTER -> "
 select choice in \
