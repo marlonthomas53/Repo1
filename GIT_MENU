@@ -6,6 +6,8 @@ REPOSITORY=repo2
 
 GIT_ADD() {
 clear
+		echo -e "\tPerforming a 'GIT ADD' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
 		git add $fn
 
 # fns=$(ls -lt | awk '{print $NF}' | tr -d '[0-9]')
@@ -21,20 +23,22 @@ clear
 
 GIT_STATUS() {
 clear
-		echo -e "\tPerforming a 'GIT STATUS' on repository $respository\nHIT ENTER TO CONTINUE"
-		read
+		# echo -e "\tPerforming a 'GIT STATUS' on repository $respository\nHIT ENTER TO CONTINUE"
+		# read
 		git status 
 }
 
 GIT_PUSH() {
 clear 
+		echo -e "\tPerforming a 'GIT PUSH' on repository $respository\nHIT ENTER TO CONTINUE"
+		read
 		git push 
 }
 
 GIT_COMMIT() {
 clear
-		echo -e "\tPerforming a 'GIT COMMIT' on repository $respository\nHIT ENTER TO CONTINUE"
-		read
+		# echo -e "\tPerforming a 'GIT COMMIT' on repository $respository\nHIT ENTER TO CONTINUE"
+		# read
 		git commit -m "Updated file $fn"
 }
 
@@ -51,8 +55,8 @@ clear
 
 GIT_DIFF() {
 clear
-		echo -e "\tPerforming a 'GIT DIFF' on repository $respository\nHIT ENTER TO CONTINUE"
-		read
+		# echo -e "\tPerforming a 'GIT DIFF' on repository $respository\nHIT ENTER TO CONTINUE"
+		# read
 
 		git diff 
 }
