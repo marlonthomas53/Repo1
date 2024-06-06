@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 clear
 
 fn=`ls -t | head -1`
@@ -75,6 +75,7 @@ select choice in \
 "EXIT_GIT_MENU" 
 
 do
+
 for options in $(echo $choice)
 do
 case $options in
