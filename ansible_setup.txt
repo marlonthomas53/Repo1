@@ -1,0 +1,20 @@
+# generate your own id_rsa key for logging into the containers
+ssh-keygen -t rsa 
+# hit enter to accept all the defaults
+
+# build the container with ssh
+docker build . -t ssh_container
+
+# startup as many containers as you want:
+docker run -td --name YOUR-CONTAINER-NAME -v /root/.ssh:/root/.ssh ssh_container
+# NOTE: change the name for each one you want to startup.
+
+# get the IP address of the container
+docker inspect YOUR-CONTAINER-NAME | grep -i IPAddress | cut -d '"' -f 4 | tail -1
+# NOTE change the name to your container name above
+
+# use this command to ssh into the container:
+ssh -oStrictHostKeyChecking=no YOUR-CONTAINER-IP
+
+# spin up as many as you need and then run ansible from the server to the containers
+# Good luck!
