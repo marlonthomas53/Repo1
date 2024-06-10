@@ -1,0 +1,39 @@
+# Check docker running processes
+docker ps
+
+# Create multi instance 
+docker run -itd ubuntu bash
+docker run -itd ubuntu bash
+docker run -itd ubuntu bash
+
+# Check how many instances you have running
+root@mthomas-vm-1:~# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+f320eedf73e7   ubuntu    "bash"    6 minutes ago   Up 6 minutes             vigorous_einstein
+67f40ac33f6e   ubuntu    "bash"    6 minutes ago   Up 6 minutes             keen_mestorf
+e63a28601e82   ubuntu    "bash"    6 minutes ago   Up 6 minutes             competent_shannon
+
+# Login into various instances of docker
+docker exec -it f320eedf73e7 bash
+docker exec -it 67f40ac33f6e bash
+docker exec -it e63a28601e82 bash
+
+# Stop each docker container
+
+# root@mthomas-vm-1:~# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+f320eedf73e7   ubuntu    "bash"    14 minutes ago   Up 14 minutes             vigorous_einstein
+67f40ac33f6e   ubuntu    "bash"    14 minutes ago   Up 14 minutes             keen_mestorf
+e63a28601e82   ubuntu    "bash"    14 minutes ago   Up 14 minutes             competent_shannon
+
+root@mthomas-vm-1:~# docker stop f320eedf73e7
+f320eedf73e7
+
+root@mthomas-vm-1:~# docker stop 67f40ac33f6e
+67f40ac33f6e
+
+root@mthomas-vm-1:~# docker stop e63a28601e82
+e63a28601e82
+
+root@mthomas-vm-1:~# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
