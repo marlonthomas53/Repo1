@@ -1,0 +1,18 @@
+#!/usr/bin/ksh
+
+PS3='INPUT: HIT ENTER TO CONTINUE '
+set -A LOG_NAME /interfaces/HQE/HCE/ATS/logs /interfaces/HQE/HPR/ThomasCompany/logs
+
+select LOG_NAME in ${LOG_NAME[*]}
+do
+   case $LOG_NAME in
+
+      ${LOG_NAME[]})
+                VarName="${LOG_NAME[$REPLY-1]}"
+                echo $VarName
+                read
+                break
+;;
+
+esac
+        done
