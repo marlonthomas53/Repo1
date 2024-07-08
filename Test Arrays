@@ -1,0 +1,21 @@
+#!/bin/ksh
+
+rm -f maskfile*
+for i in 1 2 3 4; do touch maskfile${i}.$(date +%s).txt; done
+FILEMASKS="maskfile1* maskfile2* maskfile3* maskfile4*"
+
+set -A MASKS $FILEMASKS
+set -A TARGETS ""
+
+for i in "${MASKS[@]}"
+do
+	thisfile=$(ls -t $i | head -1 )
+ 	TARGETS="$TARGETS $thisfile"
+done
+#echo TARGETS:$TARGETS
+
+for target in ${TARGETS[@]}; do
+  echo "THISFILE: $target"
+	mkdir -p archive
+	mv $target archive
+done
