@@ -1,0 +1,49 @@
+#!/usr/bin/ksh
+clear
+MENUS_LOC=/tmp/MARLON/bin
+set -A chocies "" LOG_CHK_MENU CHK_FILEMASK SHOW_LOGDIR SHOW_ARCHIVE_DIR SHOW_WORK_DIR MAIN_MENU
+
+PS3="INPUT: HIT ENTER TO CONTINUE: "
+select chocies in ${chocies[@]}
+do
+
+for choices in $chocies
+do
+
+case $choices in
+        ${chocies[1]})
+        clear
+        echo -e "INPUT: CHOOSE LOGFILE TO CHECK:\n"
+        sleep 1
+        export LD=$LOG_DIR
+        $MENUS_LOC/LogCheckMenu
+;;
+        ${chocies[2]})
+        FILEMASKS=$(cat $script_name|grep 'FILEMASKS'|grep -v "{")
+        script=$(basename $script_name)
+        echo -e "\nThe FILEMASK & script name is:\nScriptName:$script\n$FILEMASKS\n"
+        echo ""
+;;
+        ${chocies[3]})
+        LOG_DIR=$(cat $script_name|grep 'LOG_DIR'|grep -v "{")
+        script=$(basename $script_name)
+        echo ""
+;;
+        ${chocies[4]})
+        ARCHIVE_DIR=$(cat $script_name|grep 'ARCHIVE_DIR'|grep -v "{")
+        script=$(basename $script_name)
+        echo ""
+;;
+        ${chocies[5]})
+        FTP_DIR=$(cat $script_name|grep 'FTP_DIR'|grep -v "{")
+        script=$(basename $script_name)
+        echo ""
+;;
+        ${chocies[6]})
+        echo "Exitsing script..."
+        sleep 1
+        exit
+;;
+esac
+done
+done
