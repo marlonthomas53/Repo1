@@ -1,0 +1,192 @@
+#!/usr/bin/python3
+import os
+
+os.system('clear')
+
+def PYTHON_IF_STATEMENT_EXAMPLE():
+ a = 200
+ b = 33
+ if b > a:
+  print("\n\tb is greater than a\n")
+ else:
+  print("\n\tb is not greater than a\n")
+
+def ITERATION_EXAMPLE():
+ mytuple = ("apple", "banana", "cherry")
+ myit = iter(mytuple)
+
+ print(next(myit))
+ print(next(myit))
+ print(next(myit))
+
+def CREATE_A_PYTHON_DICT():
+ thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+ print(thisdict["brand"])
+
+ x = car.keys()
+ print(x)               # Before the change
+ car["color"] = "white"
+ print(x)               #After the change
+def LOOP_THRU_A_PYTHON_DICT():
+ thisdict =     {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+ for x, y in thisdict.items():
+  print(x.upper(), y.upper())
+  #print(x, y)
+
+def LOOP_THRU_MULTI_PYTHON_DICT():
+ myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+for x, obj in myfamily.items():
+    print(x)
+
+ for y in obj:
+    print(y + ':', obj[y])
+
+def StrConcatenation():
+ os.system('clear')
+ a = "Hello"
+ b = "World"
+ c = a + " " + b
+ print(c.upper())
+
+def SET_FILE_CASE():
+ os.system('clear')
+ x = "FanTastiC"
+ print(x.upper())
+ # print(x.lower())
+
+#def SET_FILE_CASE():
+# os.system('clear')
+# price = 59
+# txt = f"The price is {price} dollars"
+# print(txt)
+
+def VIEW_FILE_CONTENT():
+ os.system('clear')
+ file = open("FileToOpen.txt", "r") # READING content of the file named: 'FileToOpen.txt'
+ print(file.read())
+ #print(file.readlines())
+
+def WRITE_CONTENT_TO_A_FILE():
+ os.system('clear')
+ file = open("FileToOpen.txt", "w") # WRITING content to the file named: 'FileToOpen.txt'
+ file.write("\nThis is me ADDING CONTENT TO A FILE\n")
+ file.close()
+
+def WRITE_CONTENT_TO_A_FILE():
+ os.system('clear')
+ file = open("FileToOpen.txt", "a")  # APPENDING content to file named: FileToOpen.txt
+ file.write("\nThis is me APPENDING CONTENT TO A FILE\n")
+ file.close()
+
+def FIND_AND_REPLACE():
+ with open('FileToOpen.txt', 'r') as file: # Read in the file
+
+  filedata = file.read()
+  filedata = filedata.replace('CONTENT', 'DATA') # Replace the target string
+
+ with open('FileToOpen.txt', 'w') as file:       # Write the file out again
+  file.write(filedata)
+
+menu_options = {
+        #OPTIONS()
+1: 'PYTHON_IF_STATEMENT_EXAMPLE',
+2: 'ITERATION_EXAMPLE',
+3: 'LOOP_THRU_MULTI_PYTHON_DICT',
+4: 'StrConcatenation',
+5: 'SET_FILE_CASE',
+6: 'VIEW_FILE_CONTENT',
+7: 'WRITE_CONTENT_TO_A_FILE',
+8: 'FIND_AND_REPLACE',
+9: 'EXIT_MAIN_MENU',
+}
+
+
+
+
+
+def print_menu():
+    for key in menu_options.keys():
+        print (key, '--', menu_options[key] )
+
+def option1():
+        PYTHON_IF_STATEMENT_EXAMPLE()
+
+def option2():
+        os.system('clear')
+        ITERATION_EXAMPLE()
+
+def option3():
+        LOOP_THRU_MULTI_PYTHON_DICT()
+
+def option4():
+        StrConcatenation()
+
+def option5():
+        SET_FILE_CASE()
+
+def option6():
+        VIEW_FILE_CONTENT()
+
+def option7():
+        WRITE_CONTENT_TO_A_FILE()
+
+def option8():
+        FIND_AND_REPLACE()
+
+def option9():
+        os.system('sleep 1 ; clear')
+        os.system('print EXIT_MAIN_MENU')
+
+if __name__=='__main__':
+    while(True):
+        print_menu()
+        option = ''
+        try:
+            option = int(input('Enter your choice: '))
+        except:
+            print('Wrong input. Please enter a number ...')
+
+        #Check what choice was entered and act accordingly
+        if option == 1:
+           option1()
+        elif option == 2:
+            option2()
+        elif option == 3:
+            option3()
+        elif option == 4:
+            option4()
+        elif option == 5:
+            option5()
+        elif option == 6:
+            option6()
+        elif option == 7:
+            option7()
+        elif option == 8:
+            option8()
+        elif option == 9:
+            print('Exiting MENU')
+            exit()
+        else:
+            print('Invalid option. Please enter a number between 1 and 9.')
+
